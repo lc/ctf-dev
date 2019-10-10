@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blog \0/</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  	p {
+  		font-size:1.1em;
+  	}
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Random Corp</h1>
+  <p>Welcome to our new responsive blogging site!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>About Us</h3>
+      <p>Random Corp is a company dedicated to our company stuff.</p>
+    </div> 
+    <div class="col-sm-4">
+      <h3>Mission Statement</h3>
+      <p>"I will not be beat. I will never give up. I am on a mission. That is the Michael Scott guarantee."<br><br><b>NOTE:</b> no directory bruteforcing, you don't need it. You may need to use an automated tool at the final step. </p>  
+    </div>
+    <div class="col-sm-4">
+      <h3>News</h3>        
+      <p id="news"></p>
+    </div>
+  </div>
+</div>
+<script>
+    $.ajax({url: "api.php?call=news", success: function(result){
+      $("#news").html(result);
+    }});
+</script>
+<!-- 
+  <script>
+    $.ajax({url: "api.php?call=changelog", success: function(result){
+      $("#news").html(result);
+    }});
+</script>
+-->
+</body>
+</html>
