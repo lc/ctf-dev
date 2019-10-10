@@ -1,7 +1,7 @@
 # srql ctf solution
 Upon visiting http://srql.d.ctff.fun/ you're greeted with the following index page:
 
-![Index](/img/index_page.png?raw=true "")
+![Index](/srql/solution/img/index_page.png?raw=true "")
 
 
 Upon inspecting the page / viewing the source we can see that the following HTML / JS is commented out:
@@ -36,11 +36,11 @@ As we can see it's an internal ip address, pointing to something internally. A s
 
 Setting the `?call=` parameter at http://srql.d.ctff.fun/api.php to an arbitrary URL: http://example.com
 
-![example.com](/img/ssrf_example.png?raw=true "")
+![example.com](/srql/solution/img/ssrf_example.png?raw=true "")
 
 As we can see, the application  is actually making HTTP requests to any url we provide. Let's set it to the developer server we found in the changelog:
 
-![DevServer](/img/dev_server_index.png?raw=true "")
+![DevServer](/srql/solution/img/dev_server_index.png?raw=true "")
 
 In the response we see a form that submits via GET to `debug.php?name=developers`. Let's append it to the developer server URL: http://srql.d.ctff.fun/api.php?call=http://devrandom.corp.d.ctff.fun:8080/debug.php?name=developers
 
